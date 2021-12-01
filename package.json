@@ -1,0 +1,36 @@
+{
+  "name": "ac2",
+  "version": "1.0.0",
+  "description": "AC2",
+  "main": "app.js",
+  "dependencies": {
+    "check-links": "^1.1.8",
+    "css-minify": "^2.0.0",
+    "express": "^4.17.1",
+    "html-minifier": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js && npm run start",
+    "prehtml-minifier": "del /S /Q dist  && npm run copy",
+    "html-minifier": "html-minifier --input-dir src --output-dir dist --file-ext html --remove-comments --collapse-whitespace --minify-js true --minify-css true",
+    "copy": "xcopy src dist /E /I /Y",
+    "css-mini": "css-minify -d src/css/pages -o dist/css/pages",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "npx check-html-links dist",
+    "build": "npm install  && npm run html-minifier && npm run check && npm run css-mini "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nar699/Ac2.git"
+  },
+  "keywords": [
+    "ola"
+  ],
+  "author": "Narcis Cisquella Carbonell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nar699/Ac2/issues"
+  },
+  "homepage": "https://github.com/nar699/Ac2#readme"
+}
